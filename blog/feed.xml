@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Flak Blog</title>
+        <link>https://your-docusaurus-test-site.com/blog</link>
+        <description>The best place to stay up-to-date with the latest Flak news and events.</description>
+        <lastBuildDate>Thu, 12 Sep 2019 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Flak Blog</title>
+            <url>https://your-docusaurus-test-site.com/img/flak.ico</url>
+            <link>https://your-docusaurus-test-site.com/blog</link>
+        </image>
+        <copyright>Copyright © 2019 flak</copyright>
+        <item>
+            <title><![CDATA[Blog]]></title>
+            <link>https://your-docusaurus-test-site.com/blog/2019/09/12/blog-post.html</link>
+            <guid>https://your-docusaurus-test-site.com/blog/2019/09/12/blog-post.html</guid>
+            <pubDate>Thu, 12 Sep 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Stay tuned!</p> ]]></description>
+        </item>
+    </channel>
+</rss>

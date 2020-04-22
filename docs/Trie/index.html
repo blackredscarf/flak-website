@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Trie · Flak</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="In computer science, a [trie](https://en.wikipedia.org/wiki/Trie), also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the sequence associated with that node, and the root is associated with the empty sequence."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Trie · Flak"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="In computer science, a [trie](https://en.wikipedia.org/wiki/Trie), also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the sequence associated with that node, and the root is associated with the empty sequence."/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/flak.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/flak.ico" alt="Flak"/><h2 class="headerTitleWithLogo">Flak</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/Introduction" target="_self">Docs</a></li><li class=""><a href="/docs/doc4" target="_self">Github</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Container</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/Introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/Installation">Install</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Container</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/Map-Set">Map and Set</a></li><li class="navListItem"><a class="navItem" href="/docs/KDTree">KDTree</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/Trie">Trie</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Algorithm</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/Sort">Sort</a></li><li class="navListItem"><a class="navItem" href="/docs/Heap">Heap</a></li><li class="navListItem"><a class="navItem" href="/docs/Random">Random</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Graph</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/AdjacencyList">Adjacency List</a></li><li class="navListItem"><a class="navItem" href="/docs/ShortestPath">Shortest Path</a></li><li class="navListItem"><a class="navItem" href="/docs/Search">Search</a></li><li class="navListItem"><a class="navItem" href="/docs/DisjointSet">Disjoint Set</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Trie</h1></header><article><div><span><p>In computer science, a <a href="https://en.wikipedia.org/wiki/Trie">trie</a>, also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array. Unlike a binary search tree, no node in the tree stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. All the descendants of a node have a common prefix of the sequence associated with that node, and the root is associated with the empty sequence.</p>
+<p>In flak, for reducing sparsity, we used the map to build the association of the keys. Comparing with <a href="https://en.wikipedia.org/wiki/Radix_tree">compact prefix tree</a>, it needs more space, but simpler and more general.</p>
+<p>We implemented the trie in a header file <code>flak/Trie.h</code>. You can define it as</p>
+<pre><code class="hljs css language-cpp">flak::Trie&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; t;
+</code></pre>
+<p>The first template parameters represents the sequence type that is an iterable container, such as pointers, string, vector and so on. And the second is the value type.</p>
+<p>Seeing an example and feeling:</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/Trie.h&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">typedef</span> flak::Trie&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; Trie;
+    Trie t;
+    <span class="hljs-built_in">string</span> s = <span class="hljs-string">"hello c++"</span>;
+    <span class="hljs-built_in">string</span> s2 = <span class="hljs-string">"hello java"</span>;
+    <span class="hljs-built_in">string</span> s3 = <span class="hljs-string">"bye php"</span>;
+    <span class="hljs-built_in">string</span> s4 = <span class="hljs-string">"hello javac"</span>;
+
+    t.insert(s, <span class="hljs-number">1</span>);
+    t.insert(s2, <span class="hljs-number">3</span>);
+    t.insert(s3, <span class="hljs-number">4</span>);
+    t.insert(s4, <span class="hljs-number">8</span>);
+
+    <span class="hljs-comment">// find a key</span>
+    <span class="hljs-built_in">string</span> key = <span class="hljs-string">""</span>;
+    key = <span class="hljs-string">"hello java"</span>;
+    pair&lt;<span class="hljs-keyword">bool</span>, Trie::iterator&gt; res = t.find(key);
+    <span class="hljs-keyword">if</span>(res.first) {
+        Trie::iterator it = res.second;
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 3</span>
+    }
+
+    <span class="hljs-comment">// find prefix</span>
+    <span class="hljs-built_in">string</span> prefix = <span class="hljs-string">"hello"</span>;
+    <span class="hljs-built_in">vector</span>&lt;Trie::iterator&gt; ress = t.findPrefix(prefix);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span>&amp; p : ress) {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *p &lt;&lt; <span class="hljs-string">" "</span>; <span class="hljs-comment">// 1 3 8</span>
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// erase prefix</span>
+    <span class="hljs-keyword">bool</span> b = t.erasePrefix(<span class="hljs-string">"hello"</span>);
+    <span class="hljs-keyword">if</span>(b) {
+        <span class="hljs-built_in">cout</span> &lt;&lt; t.find(s).first &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// false</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; t.find(s2).first &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// false</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; t.find(s3).first &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// true</span>
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/KDTree"><span class="arrow-prev">← </span><span>KDTree</span></a><a class="docs-next button" href="/docs/Sort"><span>Sort</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/flak.ico" alt="Flak" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/Introduction.html">Getting Started</a><a href="/docs/en/Introduction.html">Guides</a></div><div><h5>Community</h5><a href="/en/#">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/blackredscarf/flak">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"></a><section class="copyright">Copyright © 2019 flak</section></footer></div></body></html>

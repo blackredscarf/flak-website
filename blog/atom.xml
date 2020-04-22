@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://your-docusaurus-test-site.com/blog</id>
+    <title>Flak Blog</title>
+    <updated>2019-09-12T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://your-docusaurus-test-site.com/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest Flak news and events.</subtitle>
+    <logo>https://your-docusaurus-test-site.com/img/flak.ico</logo>
+    <rights>Copyright © 2019 flak</rights>
+    <entry>
+        <title type="html"><![CDATA[Blog]]></title>
+        <id>https://your-docusaurus-test-site.com/blog/2019/09/12/blog-post.html</id>
+        <link href="https://your-docusaurus-test-site.com/blog/2019/09/12/blog-post.html">
+        </link>
+        <updated>2019-09-12T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>Stay tuned!</p> ]]></summary>
+        <author>
+            <name>blackredscarf</name>
+        </author>
+    </entry>
+</feed>

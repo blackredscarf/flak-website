@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Map and Set · Flak</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Map and Set are [associative containers](https://en.wikipedia.org/wiki/Associative_containers). They can be used to store arbitrary elements, such as integers, strings or custom classes."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Map and Set · Flak"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="Map and Set are [associative containers](https://en.wikipedia.org/wiki/Associative_containers). They can be used to store arbitrary elements, such as integers, strings or custom classes."/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/flak.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/flak.ico" alt="Flak"/><h2 class="headerTitleWithLogo">Flak</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/Introduction" target="_self">Docs</a></li><li class=""><a href="/docs/doc4" target="_self">Github</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Container</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/Introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/Installation">Install</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Container</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/Map-Set">Map and Set</a></li><li class="navListItem"><a class="navItem" href="/docs/KDTree">KDTree</a></li><li class="navListItem"><a class="navItem" href="/docs/Trie">Trie</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Algorithm</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/Sort">Sort</a></li><li class="navListItem"><a class="navItem" href="/docs/Heap">Heap</a></li><li class="navListItem"><a class="navItem" href="/docs/Random">Random</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Graph</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/AdjacencyList">Adjacency List</a></li><li class="navListItem"><a class="navItem" href="/docs/ShortestPath">Shortest Path</a></li><li class="navListItem"><a class="navItem" href="/docs/Search">Search</a></li><li class="navListItem"><a class="navItem" href="/docs/DisjointSet">Disjoint Set</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Map and Set</h1></header><article><div><span><p>Map and Set are <a href="https://en.wikipedia.org/wiki/Associative_containers">associative containers</a>. They can be used to store arbitrary elements, such as integers, strings or custom classes.</p>
+<h2><a class="anchor" aria-hidden="true" id="map"></a><a href="#map" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Map</h2>
+<p>The Map containers have Red Black Tree Map, Hash Map, and AVL Tree Map. Their interfaces are the same as the STL map.</p>
+<p>The header follows:</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/AVLMap.h&gt;     // avl tree map</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/HashMap.h&gt;   // hash map</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/Map.h&gt;       // red black tree map</span></span>
+</code></pre>
+<p>The interfaces:</p>
+<pre><code class="hljs css language-cpp">flak::AVLMap&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; avlmap;
+flak::HashMap&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; hashmap;
+flak::Map&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; rbmap;
+</code></pre>
+<p>Examples:</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;flak/AVLMap.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// The interface is the same as the STL map</span>
+    flak::AVLMap&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; smap;
+    smap[<span class="hljs-string">"jjhou"</span>] = <span class="hljs-number">1</span>;
+    smap[<span class="hljs-string">"jerry"</span>] = <span class="hljs-number">2</span>;
+    smap[<span class="hljs-string">"jason"</span>] = <span class="hljs-number">3</span>;
+    smap[<span class="hljs-string">"jimmy"</span>] = <span class="hljs-number">4</span>;
+
+    flak::AVLMap&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::iterator it1 = smap.begin();
+    <span class="hljs-keyword">for</span>(; it1 != smap.end(); it1++) {
+        <span class="hljs-built_in">cout</span> &lt;&lt; it1-&gt;first &lt;&lt; <span class="hljs-string">" : "</span> &lt;&lt; it1-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+
+    smap.erase(<span class="hljs-string">"jason"</span>);
+    it1 = smap.find(<span class="hljs-string">"jason"</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; (it1 == smap.end()) &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// true</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="set"></a><a href="#set" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set</h2>
+<p>The Set containers have Red Black Tree Set, Hash Set, and AVL Tree Set. Their interfaces are the same as the STL set.</p>
+<p>The header files:</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/AVLSet.h&gt;    // avl tree set</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/HashSet.h&gt;   // hash set</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/Set.h&gt;       // red black tree set</span></span>
+</code></pre>
+<p>The interfaces:</p>
+<pre><code class="hljs css language-cpp">flak::AVLSet&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; avlset;
+flak::HashSet&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; hashset;
+flak::Set&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; sset;
+</code></pre>
+<p>Examples:</p>
+<pre><code class="hljs css language-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;flak/AVLSet.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> ia[<span class="hljs-number">5</span>] = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>};
+    flak::AVLSet&lt;<span class="hljs-keyword">int</span>&gt; iset(ia, ia+<span class="hljs-number">5</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"size: "</span> &lt;&lt; iset.size() &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// insert</span>
+    iset.insert(<span class="hljs-number">11</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"size: "</span> &lt;&lt; iset.size() &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// count</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"count: "</span> &lt;&lt; iset.count(<span class="hljs-number">3</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// erase</span>
+    iset.erase(<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">auto</span> it = iset.find(<span class="hljs-number">1</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; (it == iset.end()) &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// iterator</span>
+    <span class="hljs-keyword">auto</span> it1 = iset.begin();
+    <span class="hljs-keyword">for</span>(; it1 != iset.end(); it1++) {
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it1 &lt;&lt; <span class="hljs-string">" "</span>;
+    }
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/Installation"><span class="arrow-prev">← </span><span>Install</span></a><a class="docs-next button" href="/docs/KDTree"><span>KDTree</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#map">Map</a></li><li><a href="#set">Set</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/flak.ico" alt="Flak" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/Introduction.html">Getting Started</a><a href="/docs/en/Introduction.html">Guides</a></div><div><h5>Community</h5><a href="/en/#">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/blackredscarf/flak">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"></a><section class="copyright">Copyright © 2019 flak</section></footer></div></body></html>

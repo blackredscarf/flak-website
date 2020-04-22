@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Flak Introduction · Flak</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="**Flak** is a general and efficient data structures and algorithm template library. Implementation in STL style and easy-to-use interface."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Flak Introduction · Flak"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="**Flak** is a general and efficient data structures and algorithm template library. Implementation in STL style and easy-to-use interface."/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/flak.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/flak.ico" alt="Flak"/><h2 class="headerTitleWithLogo">Flak</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/Introduction" target="_self">Docs</a></li><li class=""><a href="/docs/doc4" target="_self">Github</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/Introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/Installation">Install</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Container</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/Map-Set">Map and Set</a></li><li class="navListItem"><a class="navItem" href="/docs/KDTree">KDTree</a></li><li class="navListItem"><a class="navItem" href="/docs/Trie">Trie</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Algorithm</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/Sort">Sort</a></li><li class="navListItem"><a class="navItem" href="/docs/Heap">Heap</a></li><li class="navListItem"><a class="navItem" href="/docs/Random">Random</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Graph</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/AdjacencyList">Adjacency List</a></li><li class="navListItem"><a class="navItem" href="/docs/ShortestPath">Shortest Path</a></li><li class="navListItem"><a class="navItem" href="/docs/Search">Search</a></li><li class="navListItem"><a class="navItem" href="/docs/DisjointSet">Disjoint Set</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Flak Introduction</h1></header><article><div><span><p><strong>Flak</strong> is a general and efficient data structures and algorithm template library. Implementation in STL style and easy-to-use interface.</p>
+<h2><a class="anchor" aria-hidden="true" id="container"></a><a href="#container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container</h2>
+<p>A container is a holder object that stores a collection of other objects (its elements). They are implemented as class templates, which allows great flexibility in the types supported as elements.</p>
+<table>
+<thead>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Associative</strong></td><td>AVLTree <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/AVLTree.h">(s)</a></td><td>AVLMap <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/AVLMap.h">(s)</a> <a href="https://github.com/blackredscarf/flak/blob/master/examples/src/Map.cpp">(e)</a></td><td>AVLSet <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/AVLSet.h">(s)</a></td><td>RBTree <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/RBTree.h">(s)</a></td><td>RBMap <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/Map.h">(s)</a></td></tr>
+<tr><td></td><td>RBSet <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/Set.h">(s)</a></td><td>HashTable <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/HashTable.h">(s)</a></td><td>HashMap <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/HashMap.h">(s)</a></td><td>HashSet <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/HashSet.h">(s)</a></td><td>SearchTree <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/SearchTree.h">(s)</a></td></tr>
+<tr><td></td><td>KDTree <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/KDTree.h">(s)</a> <a href="https://github.com/blackredscarf/flak/blob/master/examples/src/KDTree.cpp">(e)</a></td><td>Trie <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/Trie.h">(s)</a> <a href="https://github.com/blackredscarf/flak/blob/master/examples/src/Trie.cpp">(e)</a></td><td></td><td></td><td></td></tr>
+<tr><td><strong>Sequential</strong></td><td>Vector <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/Vector.h">(s)</a></td><td>List <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/List.h">(s)</a></td><td>SList <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/SList.h">(s)</a></td><td>PriorityQueue <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/PriorityQueue.h">(s)</a></td><td></td></tr>
+</tbody>
+</table>
+<p>(s) links to source, (e) links to example.</p>
+<h2><a class="anchor" aria-hidden="true" id="algorithm"></a><a href="#algorithm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Algorithm</h2>
+<p>A collection of functions especially designed to be used on ranges of elements. A range is any sequence of objects that can be accessed through iterators or pointers, such as an array or an instance of some of the containers.</p>
+<table>
+<thead>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Sort</strong></td><td>MergeSort <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/MergeSort.h">(s)</a></td><td>InsertionSort <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/InsertionSort.h">(s)</a></td><td>QuickSort <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/QuickSort.h">(s)</a></td><td>IntroSort <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Sort.h">(s)</a></td><td>PartialSort <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Sort.h#L59">(s)</a></td></tr>
+<tr><td><strong>Common</strong></td><td>RandomShuffle <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/RandomShuffle.h">(s)</a></td><td>Reverse <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Reverse.h">(s)</a></td><td>BinarySearch <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Search.h">(s)</a></td><td>Merge <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Merge.h">(s)</a></td><td>Partition <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Alg.h#L53">(s)</a></td></tr>
+<tr><td></td><td>RandomizedSelect <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/alg/RandomizedSelect.h">(s)</a></td><td>Heap <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/Heap.h">(s)</a></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="graph"></a><a href="#graph" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Graph</h2>
+<p>A library contained the graph data structures and algorithms.</p>
+<table>
+<thead>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Graph</strong></td><td>AdjacencyList <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/graph/AdjacencyList.h">(s)</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><strong>Algorithm</strong></td><td>Dijkstra <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/graph/Dijkstra.h">(s)</a></td><td>BreadthFirstSearch <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/graph/BFS.h">(s)</a> <a href="https://github.com/blackredscarf/flak/blob/master/examples/src/BFS.cpp">(e)</a></td><td>DepthFirstSearch <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/graph/DFS.h">(s)</a> <a href="https://github.com/blackredscarf/flak/blob/master/examples/src/DFS.cpp">(e)</a></td><td>DisjointSet <a href="https://github.com/blackredscarf/flak/blob/master/include/flak/graph/DisjointSet.h">(s)</a> <a href="https://github.com/blackredscarf/flak/blob/master/examples/src/DisjointSet.cpp">(e)</a></td><td></td></tr>
+</tbody>
+</table>
+<p>All of them in the <code>flak</code> namespace.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/Installation"><span>Install</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#container">Container</a></li><li><a href="#algorithm">Algorithm</a></li><li><a href="#graph">Graph</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/flak.ico" alt="Flak" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/Introduction.html">Getting Started</a><a href="/docs/en/Introduction.html">Guides</a></div><div><h5>Community</h5><a href="/en/#">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/blackredscarf/flak">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"></a><section class="copyright">Copyright © 2019 flak</section></footer></div></body></html>
